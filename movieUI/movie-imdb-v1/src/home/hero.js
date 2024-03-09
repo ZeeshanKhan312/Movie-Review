@@ -8,6 +8,12 @@ import Button from 'react-bootstrap/Button';
 import React from 'react'
 
 const Hero = ({movies}) => {
+    const navigate = useNavigate();
+
+    function reviews(imdbId)
+    {
+        navigate(`/${imdbId}/reviews`);
+    }
   return (
     <div className ='movie-carousel-container'>
       <Carousel>

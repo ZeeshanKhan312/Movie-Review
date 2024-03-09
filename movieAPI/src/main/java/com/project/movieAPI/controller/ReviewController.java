@@ -18,7 +18,7 @@ public class ReviewController {
 
     @PostMapping("/{imdbId}/reviews")
     public ResponseEntity<Review> postNewReview(@PathVariable String imdbId, @RequestBody Map<String,String> payload){
-        return new ResponseEntity<Review>(reviewService.createReview(imdbId, payload.get("reviewCmnt")), HttpStatus.CREATED);
+        return new ResponseEntity<Review>(reviewService.createReview(imdbId, payload.get("cmnts")), HttpStatus.CREATED);
     }
 
 }
