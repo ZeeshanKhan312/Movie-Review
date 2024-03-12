@@ -27,7 +27,8 @@ function App() {
       const res=await api.get(`/api/movies/${imdbId}`);
       const singleMovie=res.data
       setMovie(singleMovie);
-      setReviews(singleMovie.reviews)
+      
+      setReviews(singleMovie.reviewIds);
     } catch (error) {
       console.log(error);
     }
@@ -44,7 +45,7 @@ function App() {
         <Route path="/" element={<Layout/>}>
         <Route path="/" element={<Home movies={movies}/>}></Route>
         <Route path="/Trailer/:ytTrailerId" element={<Trailer/>}></Route>
-        <Route path="/:imdbId/reviews" element ={<Reviews getMovieData = {getMovieData} movie={movie} reviews ={reviews} setReviews = {setReviews} />}></Route>
+        <Route path="/api/movies/:imdbId/reviews" element ={<Reviews getMovieData = {getMovieData} movie={movie} reviews ={reviews} setReviews = {setReviews} />}></Route>
         <Route path="*" element = {<notFound/>}></Route>
         </Route>
      </Routes>

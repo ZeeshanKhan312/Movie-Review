@@ -11,6 +11,7 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
     const revText = useRef();
     let params = useParams();
     const imdbId = params.imdbId;
+    console.log(reviews);
 
     useEffect(()=>{
         getMovieData(imdbId);
@@ -23,11 +24,11 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
 
         try
         {
-            const response = await api.post(`/api/movies/${imdbId}/reviews`,{reviewBody:rev.cmnts});
+            const response = await api.post(`/api/movies/${imdbId}/reviews`,{cmnts:rev.value});
 
-            const updatedReviews = [...reviews, {body:rev.cmnts}];
+            const updatedReviews = [...reviews, {body:rev.value}];
     
-            rev.cmnts = "";
+            rev.value = "";
     
             setReviews(updatedReviews);
         }
@@ -36,7 +37,6 @@ const Reviews = ({getMovieData,movie,reviews,setReviews}) => {
             console.log(err);
         }
         
-
     }
 
   return (

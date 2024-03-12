@@ -12,7 +12,7 @@ const Hero = ({movies}) => {
 
     function reviews(imdbId)
     {
-        navigate(`/${imdbId}/reviews`);
+        navigate(`/api/movies/${imdbId}/reviews`);
     }
   return (
     <div className ='movie-carousel-container'>
